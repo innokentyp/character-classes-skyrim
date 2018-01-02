@@ -10,6 +10,7 @@ Vue.use(VueRouter)
 const routes = [
   { path: '', redirect: { name: 'home' } },
   { path: '/', redirect: { name: 'home' } },
+  { path: '/character-classes-skyrim/', redirect: { name: 'home' } },
   { path: '/home', redirect: { name: 'home' } },
   { path: '/chat', redirect: { name: 'chat' } },
   { path: '/about', redirect: { name: 'about' } },
