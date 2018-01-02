@@ -57,6 +57,8 @@ export default {
     ...mapGetters([ 'caption' ])
   },
   mounted () {
+    console.log(this.$route)
+    
     // Bulma navbar script
 
     document.addEventListener('DOMContentLoaded', function () {

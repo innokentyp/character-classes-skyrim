@@ -8,19 +8,23 @@ import Chat from '@/components/Chat.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/home' },
+  { path: '', redirect: { name: 'home' } },
+  { path: '/', redirect: { name: 'home' } },
+  { path: '/home', redirect: { name: 'home' } },
+  { path: '/chat', redirect: { name: 'chat' } },
+  { path: '/about', redirect: { name: 'about' } },
   {
-    path: '/home',
+    path: 'home',
     name: 'home',
     component: Home
   },
   {
-    path: '/chat',
+    path: 'chat',
     name: 'chat',
     component: Chat
   },
   {
-    path: '/about',
+    path: 'about',
     name: 'about',
     component: About
   }
