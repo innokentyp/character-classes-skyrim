@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="content">
+    <h1 class="title">{{ caption }}</h1>
     <article>
       <h2>Races</h2>
       <ol>
@@ -18,7 +19,7 @@ export default {
     test () {
       return 'Test'
     },
-    ...mapGetters([ 'races/all' ])
+    ...mapGetters([ 'caption', 'races/all' ])
   },
   mounted () {
 
