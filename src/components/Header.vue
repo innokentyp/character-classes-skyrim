@@ -14,9 +14,9 @@
 
       <div id="navbar-menu-id" class="navbar-menu">
         <div class="navbar-start">
-          <router-link :class="['navbar-item', { 'is-active': $route.name == 'home' }]" :to="{ name: 'home' }">Home</router-link>
-          <router-link :class="['navbar-item', { 'is-active': $route.name == 'chat' }]" :to="{ name: 'chat' }">Chat</router-link>
-          <router-link :class="['navbar-item', { 'is-active': $route.name == 'about' }]" :to="{ name: 'about' }">About</router-link>
+          <router-link :class="['navbar-item', { 'is-active': $route.name == 'home' }]" to="home">Home</router-link>
+          <router-link :class="['navbar-item', { 'is-active': $route.name == 'chat' }]" to="chat">Chat</router-link>
+          <router-link :class="['navbar-item', { 'is-active': $route.name == 'about' }]" to="about">About</router-link>
         </div>
 
         <div class="navbar-end">
@@ -57,8 +57,8 @@ export default {
     ...mapGetters([ 'caption' ])
   },
   mounted () {
-    console.log(this.$route)
-    
+    //console.log(this.$route)
+
     // Bulma navbar script
 
     document.addEventListener('DOMContentLoaded', function () {

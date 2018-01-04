@@ -1,33 +1,42 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/components/Home.vue'
-import About from '@/components/About.vue'
-import Chat from '@/components/Chat.vue'
+import App from '@/App'
+
+import Home from '@/components/Home'
+import About from '@/components/About'
+import Chat from '@/components/Chat'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '', redirect: { name: 'home' } },
-  { path: '/', redirect: { name: 'home' } },
-  { path: '/character-classes-skyrim/', redirect: { name: 'home' } },
-  { path: '/home', redirect: { name: 'home' } },
-  { path: '/chat', redirect: { name: 'chat' } },
-  { path: '/about', redirect: { name: 'about' } },
   {
-    path: 'home',
-    name: 'home',
-    component: Home
+    path: '/(character-classes-skyrim)?',
+    redirect: to => {
+      console.dir(to)
+      return '/character-classes-skyrim/home'
+    }
   },
   {
-    path: 'chat',
-    name: 'chat',
-    component: Chat
-  },
-  {
-    path: 'about',
-    name: 'about',
-    component: About
+    path: '/character-classes-skyrim',
+    component: App,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: Home
+      },
+      {
+        path: 'chat',
+        name: 'chat',
+        component: Chat
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: About
+      }
+    ]
   }
 ]
 
