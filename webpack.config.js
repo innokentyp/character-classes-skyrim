@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './public'),
-    publicPath: '/public/',
+    publicPath: '/character-classes-skyrim/public/',
     filename: 'build.js',
     chunkFilename: 'data/[name].js' // для динамической загрузки с помощью import()
   },
