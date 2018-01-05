@@ -4,22 +4,43 @@
     <article>
       <h2>Races</h2>
       <ol>
-        <li v-for="(race, index) in this['races/all']" :key="index">{{ race.name }} <span v-if="race.description">({{ race.description }})</span> - {{ race.origin }}</li>
+        <li v-for="(race, index) in races" :key="index">{{ race.name }} <span v-if="race.description">({{ race.description }})</span> - {{ race.origin }}</li>
       </ol>
+      <footer>
+        <button type="button" name="button" @click="buttonClick">Load</button>
+      </footer>
     </article>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+//import races from '@/data/races.json'
 
 export default {
   name: 'home',
+  data () {
+    return {
+      races: []
+    }
+  },
   computed: {
     test () {
       return 'Test'
     },
-    ...mapGetters([ 'caption', 'races/all' ])
+    ...mapGetters([ 'caption' ])
+  },
+  methods: {
+    buttonClick (e) {
+      // установить babel-plugin-dynamic-import-webpack для import()
+      import(/* webpackMode: "lazy", webpackChunkName: "races" */ '@/data/races.json')
+        .then(races => {
+          this.races = [...races]
+        })
+        .catch(error => {
+          console.dir(error)
+        })
+    }
   },
   mounted () {
 

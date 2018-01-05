@@ -6,7 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './public'),
     publicPath: '/public/',
-    filename: 'build.js'
+    filename: 'build.js',
+    chunkFilename: 'data/[name].js' // для динамической загрузки с помощью import()
   },
   module: {
     rules: [

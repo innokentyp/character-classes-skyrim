@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Altmer",
+    "description": "High Elf",
+    "origin": "Summerset Isles"
+  },
+  {
+    "name": "Argonian",
+    "description": null,
+    "origin": "Black Marsh"
+  },
+  {
+    "name": "Bosmer",
+    "description": "Wood Elf",
+    "origin": "Valenwood"
+  }
+]
