@@ -49,5 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+li {
+  color: orange;
+}
 </style>

@@ -13,7 +13,6 @@ const routes = [
   {
     path: '/(character-classes-skyrim)?',
     redirect: to => {
-      console.dir(to)
       return '/character-classes-skyrim/home'
     }
   },
