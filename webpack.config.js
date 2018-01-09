@@ -2,15 +2,17 @@ var path = require('path')
 var webpack = require('webpack')
 
 // extract css
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    main: './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, './public'),
     publicPath: '/character-classes-skyrim/public/',
-    filename: 'build.js',
-    chunkFilename: 'data/[name].js' // для динамической загрузки с помощью import()
+    filename: '[name].js',
+    chunkFilename: 'json/[name].js' // для динамической загрузки с помощью import()
   },
   module: {
     rules: [
@@ -42,20 +44,22 @@ module.exports = {
       {
         test: /\.sass$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader?indentedSyntax']
+          use: ['css-loader', 'sass-loader?indentedSyntax'],
+          fallback: 'vue-style-loader'
         })
       },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'sass-loader'],
+          fallback: 'vue-style-loader'
         })
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: 'css-loader',
-          fallback: 'vue-style-loader' // <- это внутренняя часть vue-loader, поэтому нет необходимости его устанавливать через NPM
+          fallback: 'vue-style-loader'
         })
       },
       {
@@ -79,10 +83,12 @@ module.exports = {
             ],
             */
             'sass': ExtractTextPlugin.extract({
-              use: ['css-loader', 'sass-loader?indentedSyntax']
+              use: ['css-loader', 'sass-loader?indentedSyntax'],
+              fallback: 'vue-style-loader'
             }),
             'scss': ExtractTextPlugin.extract({
-              use: ['css-loader', 'sass-loader']
+              use: ['css-loader', 'sass-loader'],
+              fallback: 'vue-style-loader'
             }),
             'css': ExtractTextPlugin.extract({
               use: 'css-loader',
@@ -101,13 +107,13 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: 'images/[name].[ext]?[hash]'
         }
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin("css/build.css")
+    new ExtractTextPlugin("styles/[name].css")
   ],
   resolve: {
     alias: {
