@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './public'),
-    publicPath: '/character-classes-skyrim/public/',
+    publicPath: '/public/',
     filename: '[name].js',
     chunkFilename: 'json/[name].js' // для динамической загрузки с помощью import()
   },

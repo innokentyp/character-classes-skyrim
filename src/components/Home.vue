@@ -50,7 +50,7 @@ export default {
     loadAxios (e) {
       var start = new Date()
 
-      axios.get('/public/json/races.json')
+      axios.get('public/json/races.json')
         .then(response => {
           console.log(new Date() - start)
 

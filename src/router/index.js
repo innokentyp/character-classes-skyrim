@@ -10,14 +10,22 @@ import Chat from '@/components/Chat'
 Vue.use(VueRouter)
 
 const routes = [
+  /*
   {
     path: '/(character-classes-skyrim)?',
     redirect: to => {
       return '/character-classes-skyrim/home'
     }
   },
+  */
   {
-    path: '/character-classes-skyrim',
+    path: '/',
+    redirect: to => {
+      return '/home'
+    }
+  },
+  {
+    path: '/',
     component: App,
     children: [
       {
@@ -41,5 +49,5 @@ const routes = [
 
 export default new VueRouter({
   routes,
-  mode: 'history',
+  //mode: 'history',
 })
